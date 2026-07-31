@@ -1,0 +1,8 @@
+{
+  "name": "wdk-core-cms-dev",
+  "private": true,
+  "type": "module",
+  "devDependencies": {
+    "@types/react": "19.2.18"
+  }
+}
