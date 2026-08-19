@@ -23,11 +23,11 @@ npm run build
 # or: npm run dev
 ```
 
-After changing this package:
+After changing this package, re-link it in each site — the `prepare` hook
+rebuilds `dist` automatically on install, so an explicit `npm run build` is
+usually unnecessary:
 
 ```bash
-npm run build
-# in each site:
 rm -rf node_modules/@wdk/core && npm install @wdk/core@file:../wdk-core
 ```
 
