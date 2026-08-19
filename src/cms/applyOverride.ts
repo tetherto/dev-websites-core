@@ -31,7 +31,7 @@ function mergeHooks(base: HookArrays | undefined, extra: HookArrays | undefined)
 
 function applyOverride<TConfig extends OverridableConfig>(
   base: TConfig,
-  override: Override<TConfig> | undefined,
+  override: Override<TConfig> | undefined
 ): TConfig | null {
   if (override === false) return null
   if (!override) return base
@@ -49,10 +49,10 @@ function applyOverride<TConfig extends OverridableConfig>(
 
 export const applyCollectionOverride = (
   base: CollectionConfig,
-  override: CollectionOverride | undefined,
+  override: CollectionOverride | undefined
 ): CollectionConfig | null => applyOverride(base, override)
 
 export const applyGlobalOverride = (
   base: GlobalConfig,
-  override: GlobalOverride | undefined,
+  override: GlobalOverride | undefined
 ): GlobalConfig | null => applyOverride(base, override)

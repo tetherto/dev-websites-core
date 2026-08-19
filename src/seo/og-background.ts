@@ -11,7 +11,7 @@ import type { PayloadMedia } from '../cms/payload/readMediaBuffer.js'
 const log = createLogger('ogBackground')
 
 export async function getOgBackgroundDataUrl(
-  media: PayloadMedia | null | undefined,
+  media: PayloadMedia | null | undefined
 ): Promise<string | undefined> {
   if (!media || !media.filename) return undefined
   try {

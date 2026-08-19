@@ -3,42 +3,45 @@
   "version": "0.0.0",
   "private": true,
   "type": "module",
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "main": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js",
-      "default": "./dist/index.js"
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs",
+      "default": "./dist/index.mjs"
     },
     "./cms": {
-      "types": "./dist/cms/index.d.ts",
-      "import": "./dist/cms/index.js",
-      "default": "./dist/cms/index.js"
+      "types": "./dist/cms/index.d.mts",
+      "import": "./dist/cms/index.mjs",
+      "default": "./dist/cms/index.mjs"
     },
     "./seo": {
-      "types": "./dist/seo/index.d.ts",
-      "import": "./dist/seo/index.js",
-      "default": "./dist/seo/index.js"
+      "types": "./dist/seo/index.d.mts",
+      "import": "./dist/seo/index.mjs",
+      "default": "./dist/seo/index.mjs"
     },
     "./i18n": {
-      "types": "./dist/i18n/index.d.ts",
-      "import": "./dist/i18n/index.js",
-      "default": "./dist/i18n/index.js"
+      "types": "./dist/i18n/index.d.mts",
+      "import": "./dist/i18n/index.mjs",
+      "default": "./dist/i18n/index.mjs"
     },
     "./utils": {
-      "types": "./dist/utils/index.d.ts",
-      "import": "./dist/utils/index.js",
-      "default": "./dist/utils/index.js"
+      "types": "./dist/utils/index.d.mts",
+      "import": "./dist/utils/index.mjs",
+      "default": "./dist/utils/index.mjs"
     }
   },
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "tsup",
-    "dev": "tsup --watch",
-    "typecheck": "tsc --noEmit"
+    "build": "tsdown",
+    "dev": "tsdown --watch",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint",
+    "lint:fix": "eslint --fix",
+    "format": "prettier --write \"src/**/*.ts\" \"*.{json,mjs,md}\""
   },
   "peerDependencies": {
     "@aws-sdk/client-s3": "^3.0.0",
@@ -47,22 +50,21 @@
     "next": ">=15",
     "payload": "^3.85.1"
   },
-  "peerDependenciesMeta": {
-    "@aws-sdk/client-s3": {
-      "optional": true
-    },
-    "@payloadcms/storage-s3": {
-      "optional": true
-    }
-  },
   "devDependencies": {
     "@aws-sdk/client-s3": "^3.787.0",
+    "@eslint/js": "^9.39.0",
     "@payloadcms/richtext-lexical": "3.85.1",
     "@payloadcms/storage-s3": "3.85.1",
     "@types/node": "^20",
-    "next": "^15.5.0",
+    "eslint": "9.39.4",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-prettier": "^5.5.5",
+    "next": "^16.2.6",
     "payload": "3.85.1",
-    "tsup": "^8.5.0",
-    "typescript": "^5.8.0"
+    "prettier": "^3.8.1",
+    "tsdown": "^0.22.14",
+    "typescript": "^5.8.0",
+    "typescript-eslint": "^8.67.0"
   }
 }

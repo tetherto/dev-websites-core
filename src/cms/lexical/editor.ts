@@ -6,10 +6,10 @@ import {
   lexicalEditor,
 } from '@payloadcms/richtext-lexical'
 
-import type { FeatureProviderServer } from '@payloadcms/richtext-lexical'
-
 import { codeBlockLanguages, defaultCodeLanguage } from '../blocks/language-options.js'
-import type { SanitizedConfig } from 'payload'
+
+import type { FeatureProviderServer } from '@payloadcms/richtext-lexical'
+import type { Config, SanitizedConfig } from 'payload'
 
 const richTextFeatures = ({
   defaultFeatures,
@@ -34,7 +34,7 @@ const richTextFeatures = ({
  *
  * Adds `CodeBlock` and `EXPERIMENTAL_TableFeature` on top of Payload defaults.
  */
-export const richTextEditor = () =>
+export const richTextEditor = (): NonNullable<Config['editor']> =>
   lexicalEditor({
     features: richTextFeatures,
   })

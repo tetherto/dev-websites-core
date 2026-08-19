@@ -14,11 +14,7 @@ export { imageBlock } from './image.js'
 export { stepsBlock } from './steps.js'
 export { accordionBlock } from './accordion.js'
 export { leafBlocks } from './leaf-blocks.js'
-export {
-  languageOptions,
-  codeBlockLanguages,
-  defaultCodeLanguage,
-} from './language-options.js'
+export { languageOptions, codeBlockLanguages, defaultCodeLanguage } from './language-options.js'
 
 export const blogContentBlocks: Block[] = [
   richTextBlock,

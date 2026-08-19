@@ -14,7 +14,7 @@ export const languageOptions = [
 ]
 
 export const codeBlockLanguages: Record<string, string> = Object.fromEntries(
-  languageOptions.map((opt) => [opt.value, opt.label]),
+  languageOptions.map((opt) => [opt.value, opt.label])
 )
 
 export const defaultCodeLanguage = 'plaintext'

@@ -67,7 +67,9 @@ function defined<T extends Record<string, unknown>>(obj: T): Partial<T> {
  * Build a Payload config from shared stock collections/globals plus site
  * overrides and extras. Types are still generated in the consuming app.
  */
-export function buildCmsConfig<const TLocale extends string>(options: BuildCmsConfigOptions<TLocale>) {
+export function buildCmsConfig<const TLocale extends string>(
+  options: BuildCmsConfigOptions<TLocale>
+) {
   const overrides = options.overrides ?? {}
   const access = createAccessHelpers({
     ...options.access,
@@ -88,9 +90,9 @@ export function buildCmsConfig<const TLocale extends string>(options: BuildCmsCo
   }
 
   const collections = [
-    ...STOCK_COLLECTION_SLUGS.map((slug) => applyCollectionOverride(stock[slug], overrides[slug])).filter(
-      (c): c is CollectionConfig => c !== null,
-    ),
+    ...STOCK_COLLECTION_SLUGS.map((slug) =>
+      applyCollectionOverride(stock[slug], overrides[slug])
+    ).filter((c): c is CollectionConfig => c !== null),
     ...(options.extraCollections ?? []),
   ]
 

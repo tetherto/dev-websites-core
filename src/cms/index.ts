@@ -1,10 +1,7 @@
 export { buildCmsConfig } from './buildCmsConfig.js'
 export type { BuildCmsConfigOptions } from './buildCmsConfig.js'
 
-export {
-  applyCollectionOverride,
-  applyGlobalOverride,
-} from './applyOverride.js'
+export { applyCollectionOverride, applyGlobalOverride } from './applyOverride.js'
 export type { CollectionOverride, GlobalOverride } from './applyOverride.js'
 export { STOCK_COLLECTION_SLUGS } from './overrides.js'
 export type { Overrides, StockCollectionSlug } from './overrides.js'
@@ -33,10 +30,7 @@ export {
 
 export { richTextEditor, getRichTextEditorConfig } from './lexical/editor.js'
 
-export {
-  readPayloadMediaBuffer,
-  readPayloadMediaAsDataUrl,
-} from './payload/readMediaBuffer.js'
+export { readPayloadMediaBuffer, readPayloadMediaAsDataUrl } from './payload/readMediaBuffer.js'
 export type { PayloadMedia } from './payload/readMediaBuffer.js'
 
 export { requireEnvAtRuntime } from './requireEnv.js'

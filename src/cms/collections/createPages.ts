@@ -9,7 +9,7 @@ import type { CollectionConfig } from 'payload'
 
 function createContentPageCollection(
   access: AccessHelpers,
-  slug: 'pages' | 'legal-pages',
+  slug: 'pages' | 'legal-pages'
 ): CollectionConfig {
   return {
     slug,
