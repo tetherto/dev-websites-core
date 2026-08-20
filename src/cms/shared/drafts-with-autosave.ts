@@ -6,5 +6,6 @@ export const draftsWithAutosave: CollectionConfig['versions'] = {
     autosave: {
       interval: 800,
     },
+    schedulePublish: true,
   },
 }

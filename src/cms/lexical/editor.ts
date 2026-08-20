@@ -9,7 +9,7 @@ import {
 import { codeBlockLanguages, defaultCodeLanguage } from '../blocks/language-options.js'
 
 import type { FeatureProviderServer } from '@payloadcms/richtext-lexical'
-import type { Config, SanitizedConfig } from 'payload'
+import type { SanitizedConfig } from 'payload'
 
 const richTextFeatures = ({
   defaultFeatures,
@@ -34,7 +34,11 @@ const richTextFeatures = ({
  *
  * Adds `CodeBlock` and `EXPERIMENTAL_TableFeature` on top of Payload defaults.
  */
-export const richTextEditor = (): NonNullable<Config['editor']> =>
+// Return type is derived from `lexicalEditor` (a public export) rather than the
+// inferred `LexicalRichTextAdapterProvider` (not re-exported), so the generated
+// declaration stays portable while keeping the narrow Lexical adapter type that
+// consumers like `editorConfigFactory.fromEditor` require.
+export const richTextEditor = (): ReturnType<typeof lexicalEditor> =>
   lexicalEditor({
     features: richTextFeatures,
   })
