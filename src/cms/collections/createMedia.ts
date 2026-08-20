@@ -1,23 +1,20 @@
-import { draftsWithAutosave } from '../shared/drafts-with-autosave.js'
-
 import type { AccessHelpers } from '../shared/access.js'
 import type { CollectionConfig } from 'payload'
 
-/** Stock media upload collection (drafts + published read). */
+/** Stock media upload collection (always publicly readable once uploaded). */
 export function createMedia(access: AccessHelpers): CollectionConfig {
   return {
     slug: 'media',
     admin: {
       useAsTitle: 'filename',
-      defaultColumns: ['filename', 'alt', '_status', 'updatedAt'],
+      defaultColumns: ['filename', 'alt', 'updatedAt'],
     },
     access: {
-      read: access.adminOrPublished,
+      read: access.publicRead,
       create: access.adminOnly,
       update: access.adminOnly,
       delete: access.adminOnly,
     },
-    versions: draftsWithAutosave,
     upload: {
       imageSizes: [
         {
