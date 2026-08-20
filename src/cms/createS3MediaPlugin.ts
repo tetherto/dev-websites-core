@@ -20,8 +20,7 @@ export type CreateS3MediaPluginOptions = {
 export function createS3MediaPlugin(options: CreateS3MediaPluginOptions = {}): Plugin {
   const bucket = options.bucket ?? process.env.AWS_S3_BUCKET ?? ''
   const endpoint = options.endpoint ?? process.env.AWS_S3_ENDPOINT ?? ''
-  const forcePathStyle =
-    options.forcePathStyle ?? process.env.AWS_S3_FORCE_PATH_STYLE === 'true'
+  const forcePathStyle = options.forcePathStyle ?? process.env.AWS_S3_FORCE_PATH_STYLE === 'true'
 
   return s3Storage({
     enabled: Boolean(bucket),
