@@ -74,6 +74,8 @@ site's environment** (`.env` / hosting / CI); `dev-websites-core` never defines 
 | `AWS_S3_BUCKET`                               | `media`, `createS3MediaPlugin`, `readMediaBuffer` | When set, media reads/writes go to S3; otherwise disk (`<cwd>/media`).                         |
 | `AWS_ACCESS_KEY_ID` / `AWS_SECRET_ACCESS_KEY` | S3 access                                         | Optional; falls back to the default AWS credential chain.                                      |
 | `AWS_S3_REGION`                               | S3 access                                         | Defaults to `us-east-1`.                                                                       |
+| `AWS_S3_ENDPOINT`                             | S3 access                                         | Optional custom endpoint (S3-compatible stores on QVAC / PEAR). Omit on WDK for default AWS S3. |
+| `AWS_S3_FORCE_PATH_STYLE`                     | S3 access                                         | Set to `true` when the custom endpoint requires path-style addressing.                         |
 | `NEXT_PUBLIC_SITE_URL`                        | `getSiteUrl`                                      | Public origin; trailing slash trimmed. Warns in production if this and `VERCEL_URL` are unset. |
 | `VERCEL_URL`                                  | `getSiteUrl`                                      | Fallback origin on Vercel when `NEXT_PUBLIC_SITE_URL` is unset.                                |
 | `LOG_LEVEL`                                   | `createLogger`                                    | `debug` \| `info` \| `warn` \| `error`. Defaults to `info` in production, `debug` otherwise.   |
