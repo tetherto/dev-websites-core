@@ -10,6 +10,8 @@ export const languageOptions = [
   { label: 'HTML', value: 'html' },
   { label: 'Rust', value: 'rust' },
   { label: 'Go', value: 'go' },
+  { label: 'YAML', value: 'yaml' },
+  { label: 'Markdown', value: 'markdown' },
   { label: 'Plain Text', value: 'plaintext' },
 ]
 
