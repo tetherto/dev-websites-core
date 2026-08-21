@@ -1,0 +1,81 @@
+{
+  "name": "dev-websites-core",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Shared non-UI libraries (Payload CMS, SEO, i18n, utils) for the WDK / QVAC websites.",
+  "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tetherto/dev-websites-core.git"
+  },
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs",
+      "default": "./dist/index.mjs"
+    },
+    "./cms": {
+      "types": "./dist/cms/index.d.mts",
+      "import": "./dist/cms/index.mjs",
+      "default": "./dist/cms/index.mjs"
+    },
+    "./seo": {
+      "types": "./dist/seo/index.d.mts",
+      "import": "./dist/seo/index.mjs",
+      "default": "./dist/seo/index.mjs"
+    },
+    "./i18n": {
+      "types": "./dist/i18n/index.d.mts",
+      "import": "./dist/i18n/index.mjs",
+      "default": "./dist/i18n/index.mjs"
+    },
+    "./utils": {
+      "types": "./dist/utils/index.d.mts",
+      "import": "./dist/utils/index.mjs",
+      "default": "./dist/utils/index.mjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsdown",
+    "dev": "tsdown --watch",
+    "prepare": "tsdown",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint",
+    "lint:fix": "eslint --fix",
+    "format": "prettier --write \"src/**/*.ts\" \"*.{json,mjs,md}\""
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "peerDependencies": {
+    "@aws-sdk/client-s3": "^3.0.0",
+    "@payloadcms/richtext-lexical": "^3.85.1",
+    "@payloadcms/storage-s3": "^3.85.1",
+    "next": ">=15",
+    "payload": "^3.85.1"
+  },
+  "devDependencies": {
+    "@aws-sdk/client-s3": "^3.787.0",
+    "@eslint/js": "^9.39.0",
+    "@payloadcms/richtext-lexical": "3.88.0",
+    "@payloadcms/storage-s3": "3.88.0",
+    "@types/node": "^20",
+    "eslint": "9.39.4",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-prettier": "^5.5.5",
+    "next": "^16.2.6",
+    "payload": "3.88.0",
+    "prettier": "^3.8.1",
+    "tsdown": "^0.22.14",
+    "typescript": "^5.8.0",
+    "typescript-eslint": "^8.67.0"
+  }
+}
