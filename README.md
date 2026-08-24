@@ -1,21 +1,28 @@
-# `dev-websites-core`
+# `@tetherto/dev-websites-core`
 
 Shared non-UI libraries for WDK / QVAC websites. Domains:
 
-| Import            | Contents                                                                |
-| ----------------- | ----------------------------------------------------------------------- |
-| `dev-websites-core/cms`   | Payload `buildCmsConfig`, stock collections, access, Lexical, media I/O |
-| `dev-websites-core/seo`   | `createMetadataFactory`, `getSiteUrl`, `getOgBackgroundDataUrl`         |
-| `dev-websites-core/i18n`  | `Languages` / `LanguageLabel`                                           |
-| `dev-websites-core/utils` | `createLogger`, `toPlainValue`, `stripShikiPreBackground`               |
+| Import                         | Contents                                                                |
+| ------------------------------ | ----------------------------------------------------------------------- |
+| `@tetherto/dev-websites-core/cms`   | Payload `buildCmsConfig`, stock collections, access, Lexical, media I/O |
+| `@tetherto/dev-websites-core/seo`   | `createMetadataFactory`, `getSiteUrl`, `getOgBackgroundDataUrl`         |
+| `@tetherto/dev-websites-core/i18n`  | `Languages` / `LanguageLabel`                                           |
+| `@tetherto/dev-websites-core/utils` | `createLogger`, `toPlainValue`, `stripShikiPreBackground`               |
 
-Local development — consume via `"dev-websites-core": "file:../wdk-core"`.
+### Install
+
+```bash
+npm install @tetherto/dev-websites-core
+```
+
+Local development — consume via `"@tetherto/dev-websites-core": "file:../wdk-core"`.
 
 Sites use `install-links=true` in `.npmrc` so npm **copies** the package into
 `node_modules` (Turbopack cannot follow a symlink outside the app root).
 
 Built with [`tsdown`](https://tsdown.dev) (ESM only, per-domain entry points,
-`.d.ts` + sourcemaps). `npm run dev` runs `tsdown --watch`.
+`.d.ts` + sourcemaps). `npm run prepare` / `npm publish` rebuilds `dist` via
+`tsdown`. `npm run dev` runs `tsdown --watch`.
 
 ```bash
 npm install
@@ -23,15 +30,15 @@ npm run build
 # or: npm run dev
 ```
 
-After changing this package, re-link it in each site — the `prepare` hook
+After changing this package locally, re-link it in each site — the `prepare` hook
 rebuilds `dist` automatically on install, so an explicit `npm run build` is
 usually unnecessary:
 
 ```bash
-rm -rf node_modules/dev-websites-core && npm install dev-websites-core@file:../wdk-core
+rm -rf node_modules/@tetherto/dev-websites-core && npm install @tetherto/dev-websites-core@file:../wdk-core
 ```
 
-Do **not** import `dev-websites-core/cms` from Client Components — it includes Node-only
+Do **not** import `@tetherto/dev-websites-core/cms` from Client Components — it includes Node-only
 modules (`fs`, Payload, S3). Prefer domain subpaths over the root barrel.
 
 ### CMS stock
@@ -67,7 +74,7 @@ The consuming site must install these (all are required peers):
 ### Environment variables
 
 Read from `process.env` at runtime by the package — **set them in the consuming
-site's environment** (`.env` / hosting / CI); `dev-websites-core` never defines them.
+site's environment** (`.env` / hosting / CI); `@tetherto/dev-websites-core` never defines them.
 
 | Variable                                      | Used by                                           | Notes                                                                                          |
 | --------------------------------------------- | ------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
@@ -91,10 +98,10 @@ log a warning in production.
 
 ```ts
 // src/payload.config.ts
-import { buildCmsConfig, createS3MediaPlugin } from 'dev-websites-core/cms'
+import { buildCmsConfig, createS3MediaPlugin } from '@tetherto/dev-websites-core/cms'
 import { mongooseAdapter } from '@payloadcms/db-mongodb'
 import sharp from 'sharp'
-import { Languages } from 'dev-websites-core/i18n'
+import { Languages } from '@tetherto/dev-websites-core/i18n'
 
 export default buildCmsConfig({
   secret: process.env.PAYLOAD_SECRET!,
