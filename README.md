@@ -24,6 +24,8 @@ Built with [`tsdown`](https://tsdown.dev) (ESM only, per-domain entry points,
 `.d.ts` + sourcemaps). `npm run prepare` / `npm publish` rebuilds `dist` via
 `tsdown`. `npm run dev` runs `tsdown --watch`.
 
+Released under the [Apache License 2.0](LICENSE). See [CONTRIBUTING.md](CONTRIBUTING.md).
+
 ```bash
 npm install
 npm run build
