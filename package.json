@@ -4,7 +4,8 @@
   "description": "Shared non-UI libraries (Payload CMS, SEO, i18n, utils) for the WDK / QVAC websites.",
   "license": "UNLICENSED",
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   },
   "repository": {
     "type": "git",
