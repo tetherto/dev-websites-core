@@ -1,6 +1,6 @@
 {
   "name": "@tetherto/dev-websites-core",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Shared non-UI libraries (Payload CMS, SEO, i18n, utils) for the WDK / QVAC websites.",
   "license": "UNLICENSED",
   "publishConfig": {
