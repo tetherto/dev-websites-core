@@ -1,6 +1,6 @@
 {
   "name": "@tetherto/dev-websites-core",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Shared non-UI libraries (Payload CMS, SEO, i18n, utils) for the WDK / QVAC websites.",
   "license": "Apache-2.0",
   "publishConfig": {
@@ -81,5 +81,9 @@
     "typescript": "^5.8.0",
     "typescript-eslint": "^8.67.0",
     "unrun": "^0.3.1"
+  },
+  "overrides": {
+    "dompurify": "^3.4.14",
+    "fast-uri": "^3.1.6"
   }
 }
